@@ -23,6 +23,8 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="120" />
                     <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width ="*"/>
@@ -35,14 +37,25 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="POST JSON:"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="textBoxJSON" Text="{Binding TextBoxJSON}"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Username:"/>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxUsername" Text="{Binding TextBoxUsername}"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Password:"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="textBoxPassword" Text="{Binding TextBoxPassword}"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Respoonse:"/>
-                <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="textBlockReposse" Text="{Binding TextBlockReposse}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Width="300" HorizontalAlignment="Left" x:Name="textBoxUsername" Text="{Binding TextBoxUsername}"/>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <TextBlock  Text="Password:"/>
+                <TextBox Width="300" x:Name="textBoxPassword" Text="{Binding TextBoxPassword}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <TextBlock Text="Authentication Type:"/>
+                    <ComboBox x:Name="comboBoxVerb" SelectedIndex="0" SelectedItem="{Binding ComboBoxAuthType}">
+                        <x:String>POST</x:String>
+                        <x:String>GET</x:String>
+                    </ComboBox>
+                   
+                </StackPanel>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Response:"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="textBlockReposse" Text="{Binding TextBlockReposse}"/>
                 <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
-                    <Button x:Name="buttonClear" Command="{Binding ButtonClear}">Clear</Button>
-                    <Button x:Name="buttonCopy" Command="{Binding ButtonCopy}">Copy</Button>
+                    <Button x:Name="buttonClear" Command="{Binding ClearCommand}" Click="buttonClear_Click">Clear</Button>
+                    <Button x:Name="buttonCopy" Command="{Binding CopyCommand}" Click="buttonCopy_Click">Copy</Button>
+                    <Button x:Name="buttonGo" Command="{Binding GoCommand}" Click="buttonGo_Click">Go!</Button>
                 </StackPanel>
             </Grid>
         </Grid>
