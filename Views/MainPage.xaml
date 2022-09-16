@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="RESTAPI.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            x:Uid="Main_Title"
+            Style="{StaticResource PageTitleStyle}" />
+        <Grid Grid.Row="1">
+            <Grid x:Name="RestClient" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width ="*"/>
+                    <ColumnDefinition Width ="2*"/>
+                    <ColumnDefinition Width ="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Request URI:"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="textBoxURI" Text="{Binding TextBoxURI}"/>
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="POST JSON:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="textBoxJSON" Text="{Binding TextBoxJSON}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Username:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxUsername" Text="{Binding TextBoxUsername}"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Password:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="textBoxPassword" Text="{Binding TextBoxPassword}"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Respoonse:"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="textBlockReposse" Text="{Binding TextBlockReposse}"/>
+                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                    <Button x:Name="buttonClear" Command="{Binding ButtonClear}">Clear</Button>
+                    <Button x:Name="buttonCopy" Command="{Binding ButtonCopy}">Copy</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

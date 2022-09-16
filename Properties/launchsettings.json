@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "RESTAPI (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "RESTAPI (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
